@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import ArticleList from "./components/ArticleList";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => (
+  <Router>
+    <nav>
+      <Link to="/article-list">글 목록</Link>
+    </nav>
+    <Routes>
+      <Route path="/article-list" element={<ArticleList />} />
+    </Routes>
+  </Router>
+);
+
 
 export default App;
