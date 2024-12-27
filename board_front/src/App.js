@@ -18,7 +18,7 @@ const App = () => {
       <Routes>
         <Route path="/article-list" element={<ArticleList articles={articles} />} />
         <Route path="/article-create" element={<ArticleCreate setArticles={setArticles} articles={articles}/>} />
-        <Route path="/article-detail/:id" element={<ArticleDetail articles={articles} />} />
+        <Route path="/article-detail/:id" element={<ArticleDetail articles={articles} setArticles={setArticles} />} />
         <Route path="/article-update/:id" element={<ArticleUpdate articles={articles} setArticles={setArticles} />} />
       </Routes>
     </Router>

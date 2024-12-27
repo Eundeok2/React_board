@@ -1,6 +1,5 @@
 import React from "react";
 import {Link } from "react-router-dom"; 
-import ArticleCreate from "./ArticleCreate";
 
 const ArticleList = ({ articles }) => {
   return(
@@ -12,7 +11,7 @@ const ArticleList = ({ articles }) => {
         <ul>
           {articles.map((article) => (
             <li key={article.id}>
-              <Link to={`/article-detail/${article.id}`}>{article.title}</Link>
+              <Link to={`/article-detail/${article.postId}`}>{article.title}</Link>
             </li>
           ))}
         </ul>
