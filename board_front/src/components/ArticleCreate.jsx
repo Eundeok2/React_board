@@ -28,15 +28,21 @@ const ArticleCreate = ({ articles, setArticles }) => {
   return(
     <div className={styles.container}>
       <h1>글 작성 페이지</h1>
-      <form onSubmit={handleSubmit}>
-        <label>작성자: </label>
-        <input type="text" value={author} onChange={(e) => setAuthor(e.target.value)} />
+      <form onSubmit={handleSubmit} className={styles.formTag}>
+        <div>
+          <label>작성자: </label>
+          <input type="text" value={author} onChange={(e) => setAuthor(e.target.value)} />
+        </div>
         <br />
-        <label>제목: </label>
-        <input type="text" value={title} onChange={(e) => setTitle(e.target.value)}/>
+        <div>
+          <label>제목: </label>
+          <input type="text" value={title} onChange={(e) => setTitle(e.target.value)}/>
+        </div>
         <br />
-        <label>내용: </label>
-        <textarea value={content} onChange={(e) => setContent(e.target.value)} />
+        <div>
+          <label>내용: </label>
+          <textarea value={content} onChange={(e) => setContent(e.target.value)} />
+        </div>
         <br />
         <button type="submit">글 작성</button>
       </form>

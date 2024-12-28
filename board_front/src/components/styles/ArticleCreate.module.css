@@ -5,3 +5,9 @@
   height: 90vh;
   border-radius: 10px;
 }
+
+.formTag{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
