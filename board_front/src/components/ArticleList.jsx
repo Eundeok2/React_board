@@ -24,7 +24,7 @@ const ArticleList = () => {
           {articles.map((article, index) => (
             <>
               <li key={article.id} className={styles.liTag}>
-                <span>No. {index + 1} | </span>
+                <span>No. {article.id} | </span>
                 <Link to={`/article-detail/${article.postId}`}>{article.title}</Link>
                 <span>작성자 : {article.author} &nbsp;| &nbsp;조회수 : {article.viewCount}</span>
               </li>
