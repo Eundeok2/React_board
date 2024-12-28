@@ -36,9 +36,7 @@
         UPDATE board_posts
         SET 
             title = #{title},
-            content = #{content},
-            author = #{author},
-            view_count = #{viewCount}
+            content = #{content}
         WHERE post_id = #{postId}
     </update>
 
