@@ -3,9 +3,6 @@ package com.eundeok.board.dto;
 import java.time.LocalDateTime;
 
 import lombok.Data;
-import lombok.Setter;
-
-
 @Data
 public class BoardDto {
     private int postId;       // 게시글번호
