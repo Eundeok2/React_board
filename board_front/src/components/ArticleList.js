@@ -1,10 +1,11 @@
 import React from "react";
 import {Link } from "react-router-dom"; 
+import styles from "./styles/ArticleList.module.css"
 
 const ArticleList = ({ articles }) => {
   return(
-    <div>
-      <h1>전체 게시글 목록</h1>
+    <div className={styles.container}>
+      <h1 className={styles.listTitle}>전체 게시글 목록</h1>
         <h3>
           <Link to="/article-create">글 작성</Link>
         </h3>

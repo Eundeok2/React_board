@@ -1,0 +1,10 @@
+.container{
+  background-color: #BCCCDC;
+  margin: 30px 20px 30px 20px;
+  height: 90vh;
+  border-radius: 10px;
+}
+
+.listTitle{
+  padding-top: 30px;
+}
