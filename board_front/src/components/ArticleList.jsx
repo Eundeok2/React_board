@@ -22,14 +22,14 @@ const ArticleList = () => {
         </h3>
         <ul className={styles.ulTag}>
           {articles.map((article, index) => (
-            <>
-              <li key={article.id} className={styles.liTag}>
-                <span>No. {article.id} | </span>
+            <React.Fragment key={article.postId}>
+              <li className={styles.liTag}>
+                <span>No. {article.postId} &nbsp;| &nbsp;</span>
                 <Link to={`/article-detail/${article.postId}`}>{article.title}</Link>
                 <span>작성자 : {article.author} &nbsp;| &nbsp;조회수 : {article.viewCount}</span>
               </li>
               <hr />
-            </>
+            </React.Fragment>
           ))}
         </ul>
     </div>
