@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import styles from "./styles/ArticleCreate.module.css"
 
 const ArticleCreate = ({ articles, setArticles }) => {
   const [title, setTitle] = useState("");
@@ -25,7 +26,7 @@ const ArticleCreate = ({ articles, setArticles }) => {
   }  
 
   return(
-    <div>
+    <div className={styles.container}>
       <h1>글 작성 페이지</h1>
       <form onSubmit={handleSubmit}>
         <label>작성자: </label>
