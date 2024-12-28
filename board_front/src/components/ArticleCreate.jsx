@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import styles from "./styles/ArticleCreate.module.css"
 
-const ArticleCreate = ({ articles, setArticles }) => {
+const ArticleCreate = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [author, setAuthor] = useState(""); // 작성자 추가
@@ -12,17 +13,14 @@ const ArticleCreate = ({ articles, setArticles }) => {
     e.preventDefault();
 
     const newArticle = {
-      postId: Date.now(),     // 게시글 번호 (고유 id)
       title: title,
       content: content,
       author: author,
-      viewCount: 0,
-      createdAt: new Date(),
-      updatedAt: new Date()
     };
 
-    setArticles([...articles, newArticle]); // 기존 데이터에 추가
-    navigate(`/article-detail/${newArticle.postId}`)   // 작성된 글의 상세 페이지로 이동
+    axios.post("http://localhost:8080/react-board", newArticle)
+
+    navigate(`/article-list`)
   }  
 
   return(
