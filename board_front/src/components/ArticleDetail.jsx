@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useParams, Link, useNavigate } from "react-router-dom";
 
 const ArticleDetail = () => {
   const { id } = useParams();
@@ -9,7 +9,6 @@ const ArticleDetail = () => {
 
   // 데이터 가져오기
   useEffect(() => {
-    console.log("???????????????????????????????")
     axios.get(`http://localhost:8080/react-board/${id}`)
       .then(res => setArticle(res.data))
       .catch(err => console.log(err))
@@ -31,8 +30,8 @@ const ArticleDetail = () => {
       <h1>{article.title}</h1>
       <h3>작성자 : {article.author}</h3>
       <p>조회수 : {article.viewCount}</p>
-      <p>작성 시간 : {article.createdAt}</p>
-      <p>수정 시간 : {article.updatedAt}</p>
+      <p>작성 시간 : {article.createdAt.replace(/(\d{4})-(\d{2})-(\d{2})T.*/, "$1년 $2월 $3일")}</p>
+      {/* <p>수정 시간 : {article.updatedAt}</p> */}
       <p>{article.content}</p>
       <Link to="/article-list" >목록으로</Link>
       <br />
