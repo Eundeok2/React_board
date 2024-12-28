@@ -30,7 +30,11 @@ const ArticleDetail = () => {
       <h1>{article.title}</h1>
       <h3>작성자 : {article.author}</h3>
       <p>조회수 : {article.viewCount}</p>
-      <p>작성 시간 : {article.createdAt.replace(/(\d{4})-(\d{2})-(\d{2})T.*/, "$1년 $2월 $3일")}</p>
+      <p>
+        작성 시간 : {article.createdAt 
+          ? article.createdAt.replace(/(\d{4})-(\d{2})-(\d{2})T.*/, "$1년 $2월 $3일") 
+          : "정보 없음"}
+      </p>
       {/* <p>수정 시간 : {article.updatedAt}</p> */}
       <p>{article.content}</p>
       <Link to="/article-list" >목록으로</Link>
