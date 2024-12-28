@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eundeok.board.mapper.BoardRepository">
+
+	<resultMap id="BoardDtoResultMap" type="com.eundeok.board.dto.BoardDto">
+	    <result property="postId" column="post_id"/>
+	    <result property="title" column="title"/>
+	    <result property="content" column="content"/>
+	    <result property="author" column="author"/>
+	    <result property="viewCount" column="view_count"/>
+	    <result property="createdAt" column="created_at"/>
+	    <result property="updatedAt" column="updated_at"/>
+	</resultMap>
+
+    <!-- 전체 게시글 조회 -->
+    <select id="findAll" resultMap="BoardDtoResultMap">
+        SELECT *
+        FROM board_posts
+    </select>
+
+    <!-- 게시글 ID로 조회 -->	
+    <select id="findById" parameterType="int" resultMap="BoardDtoResultMap">
+        SELECT *
+        FROM board_posts
+        WHERE post_id = #{postId}
+    </select>
+
+    <!-- 게시글 생성 -->
+    <insert id="createArticle" parameterType="com.eundeok.board.dto.BoardDto">
+        INSERT INTO board_posts (title, content, author, view_count)
+        VALUES (#{title}, #{content}, #{author}, #{viewCount})
+    </insert>
+
+    <!-- 게시글 수정 -->
+    <update id="updateArticle" parameterType="com.eundeok.board.dto.BoardDto">
+        UPDATE board_posts
+        SET 
+            title = #{title},
+            content = #{content},
+            author = #{author},
+            view_count = #{viewCount}
+        WHERE post_id = #{postId}
+    </update>
+
+    <!-- 게시글 삭제 -->
+    <delete id="deleteById" parameterType="int">
+        DELETE FROM board_posts WHERE post_id = #{postId}
+    </delete>
+    
+    <update id="updateHit" parameterType="int">
+		update board_posts
+		set view_count = view_count+1
+		where post_id = #{postId};
+	</update>
+
+</mapper>
