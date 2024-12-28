@@ -1,26 +1,42 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 
 
-const ArticleUpdate = ({ articles, setArticles }) => {
+const ArticleUpdate = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const article = articles.find((article) => article.postId === Number(id));
+  const [article, setArticle] = useState({});
 
-  const [title, setTitle] = useState(article ? article.title : "")
-  const [content, setContent] = useState(article ? article.content : "");
+  // 데이터 가져오기
+  useEffect(() => {
+    axios.get(`http://localhost:8080/react-board/${id}`)
+      .then(res => setArticle(res.data))
+      .catch(err => console.log(err))
+  },[id])
 
-  if (!article) return <p>게시글을 찾을 수 없습니다.</p>;
+  useEffect(() => {
+    if (article) {
+      setTitle(article.title || "");
+      setContent(article.content || "");
+    }
+  }, [article]);
+
+  const [title, setTitle] = useState("")
+  const [content, setContent] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setArticles(
-      articles.map((a) =>
-        a.postId === article.postId ? { ...a, title, content } : a
-      )
-    );
+
+    axios.put(`http://localhost:8080/react-board/${id}`, {
+      title: title,
+      content: content
+    })
+
     navigate(`/article-detail/${article.postId}`);
   };
+
+  if (!article) return <p>게시글을 찾을 수 없습니다.</p>;
 
   return(
     <div>
