@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import styles from "./styles/ArticleCreate.module.css"
@@ -19,8 +19,10 @@ const ArticleCreate = () => {
     };
 
     axios.post("http://localhost:8080/react-board", newArticle)
-
-    navigate(`/article-list`)
+    .then(() => {
+      navigate("/article-list");
+    })
+    .catch(err => console.log(err));
   }  
 
   return(
