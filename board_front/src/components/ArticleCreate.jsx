@@ -15,7 +15,7 @@ const ArticleCreate = ({ articles, setArticles }) => {
       title: title,
       content: content,
       author: author,
-      viewContent: 0,
+      viewCount: 0,
       createdAt: new Date(),
       updatedAt: new Date()
     };
