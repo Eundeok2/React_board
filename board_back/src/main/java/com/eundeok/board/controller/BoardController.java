@@ -55,7 +55,7 @@ public class BoardController {
 
     // 게시글 수정
     @PutMapping("/{postId}")
-    public ResponseEntity<BoardDto> updatePost(@PathVariable Integer postId, @RequestBody BoardDto BoardDto) {
+    public ResponseEntity<BoardDto> updatePost(@PathVariable int postId, @RequestBody BoardDto BoardDto) {
         BoardDto.setPostId(postId);  // postId 설정
         boardService.updateArticle(BoardDto);
         return new ResponseEntity<>(HttpStatus.OK);
