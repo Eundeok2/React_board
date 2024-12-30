@@ -1,4 +1,31 @@
 .container {
+  background-image: url('./components/styles/boat-lake.jpg');
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+  background-position: center center;
+  background-attachment: fixed;
   text-align: center;
-  margin-top: 20px;
+}
+
+.mainContainer{
+
+}
+
+.title{
+  margin-top: 50px;
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: bold;
+  color: transparent;
+  background-image: linear-gradient(to right, #7AA2E3, white);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+.title:hover{
+  color: #C0EDA6;
+}
+.blurBackground{
+  filter: blur(5px)
 }

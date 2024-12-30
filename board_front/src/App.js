@@ -11,9 +11,9 @@ const App = () => {
   return(
     <div className={styles.container}>
       <Router> 
-        <nav>
-          <Link to="/article-list">글 목록</Link>
-        </nav>
+        <div className={styles.mainContainer}>
+          <Link className={styles.title} to="/article-list">글 목록</Link>
+        </div>
         <Routes>
           <Route path="/article-list" element={<ArticleList />} />
           {/* setArticles={setArticles} articles={articles} */}
