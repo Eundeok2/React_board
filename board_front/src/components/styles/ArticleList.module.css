@@ -1,8 +1,16 @@
+
 .container{
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.listContainer{
   background-color: #BCCCDC;
-  margin: 30px 20px 30px 20px;
   height: 90vh;
   border-radius: 10px;
+  width: 850px;
 }
 .createTag{
   text-align: end;

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, Link, useNavigate } from "react-router-dom";
+import styles from "./styles/ArticleDetail.module.css"
 
 const ArticleDetail = () => {
   const { id } = useParams();
@@ -26,22 +27,37 @@ const ArticleDetail = () => {
 
 
   return(
-    <div>
-      <h1>{article.title}</h1>
-      <h3>작성자 : {article.author}</h3>
-      <p>조회수 : {article.viewCount}</p>
-      <p>
-        작성 시간 : {article.createdAt 
-          ? article.createdAt.replace(/(\d{4})-(\d{2})-(\d{2})T.*/, "$1년 $2월 $3일") 
-          : "정보 없음"}
-      </p>
-      {/* <p>수정 시간 : {article.updatedAt}</p> */}
-      <p>{article.content}</p>
-      <Link to="/article-list" >목록으로</Link>
-      <br />
-      <Link to={`/article-update/${article.postId}`}>수정</Link>
-      <br />
-      <button onClick={handleDelete}>삭제</button>
+    <div className={styles.container}>
+      <div className={styles.detailContainer}>
+        <div>
+          <h1 className={styles.title}>{article.title}</h1>
+          <div className={styles.info}>
+            <p>조회수 : {article.viewCount}</p>
+            <p>작성자 : {article.author}</p>
+          </div>
+        </div>
+        <hr />
+        <div className={styles.contentContainer}>
+          <div className={styles.content}>
+            <p>
+              {article.content}
+            </p>
+          </div>
+        </div>
+        <hr />
+        <div className={styles.info2}>
+          <p>
+            작성 시간 : {article.createdAt 
+              ? article.createdAt.replace(/(\d{4})-(\d{2})-(\d{2})T.*/, "$1년 $2월 $3일") 
+              : "정보 없음"}
+          </p>
+          <div className={styles.info3}>
+            <Link className={styles.link} to="/article-list" >목록으로</Link>
+            <Link className={styles.link} to={`/article-update/${article.postId}`}>수정</Link>
+            <button className={styles.button} onClick={handleDelete}>삭제</button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
