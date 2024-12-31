@@ -17,12 +17,24 @@ const ArticleCreate = () => {
       content: content,
       author: author,
     };
+     
+    if (!newArticle.author.trim()) {
+      alert("작성자를 입력하세요.")
+      return
+    } else if (!newArticle.title.trim()) {
+      window.alert("제목을 입력하세요.")
+      return
+    } else if (!newArticle.content.trim()) {
+      window.alert("내용을 입력하세요.")
+      return
+    }
 
     axios.post("http://localhost:8080/react-board", newArticle)
-    .then(() => {
-      navigate("/article-list");
-    })
-    .catch(err => console.log(err));
+      .then(() => {
+        navigate("/article-list");
+      })
+      .catch(err => console.log(err));
+    
   }  
 
   return(

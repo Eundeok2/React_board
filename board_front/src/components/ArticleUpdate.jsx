@@ -29,6 +29,14 @@ const ArticleUpdate = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (!title.trim()) {
+      window.alert("제목을 입력하세요.")
+      return
+    } else if (!content.trim()) {
+      alert("내용을 입력하세요.")
+      return
+    }
+
     axios.put(`http://localhost:8080/react-board/${id}`, {
       title: title,
       content: content
