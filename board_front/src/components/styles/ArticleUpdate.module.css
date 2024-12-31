@@ -1,13 +1,11 @@
-
 .container{
   display: flex;
   justify-content: center;
   margin-top: 50px;
 }
 
-.formContainer{
-  background-color: #D9EAFD;
-  color: #9AA6B2;
+.mainContainer{
+  background-color: #CDC1FF;
   height: 70vh;
   border-radius: 10px;
   width: 800px;
@@ -23,22 +21,18 @@
   padding: 20px;
 }
 
-
 .input1{
-  height: 3.5vh;
-  width: 20vw;
-}
-
-.input2{
   height: 3.5vh;
   width: 25vw;
 }
 
-.input3{
+.input2{
   height: 20vh;
   width: 25vw;
   resize: none;
 }
+
+
 
 .button{
   width: 6vw;

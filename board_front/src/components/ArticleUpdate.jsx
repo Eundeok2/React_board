@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import styles from "./styles/ArticleUpdate.module.css"
 
 
 const ArticleUpdate = () => {
@@ -39,17 +40,23 @@ const ArticleUpdate = () => {
   if (!article) return <p>게시글을 찾을 수 없습니다.</p>;
 
   return(
-    <div>
-      <h1>글 수정페이지</h1>
-      <form onSubmit={handleSubmit}>
-        <label>제목: </label>
-        <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
-        <br />
-        <label>내용: </label>
-        <textarea value={content} onChange={(e) => setContent(e.target.value)} />
-        <br />
-        <button type="submit">수정</button>
-      </form>
+    <div className={styles.container}>
+      <div className={styles.mainContainer}>
+        <h1 className={styles.title}>글 수정페이지</h1>
+        <form className={styles.formTag} onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="title">제목: </label>
+            <input id="title" className={styles.input1} type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+          </div>
+          <br />
+          <div>
+            <label htmlFor="content">내용: </label>
+            <textarea id="content" className={styles.input2} value={content} onChange={(e) => setContent(e.target.value)} />
+          </div>
+          <br />
+          <button className={styles.button} type="submit">수정</button>
+        </form>
+      </div>
     </div>
   );
 };
